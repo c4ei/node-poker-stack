@@ -1,0 +1,40 @@
+Arguments: 
+  /home/dev/.nvm/v0.11.16/bin/node /usr/share/yarn/bin/yarn.js
+
+PATH: 
+  /home/dev/.nvm/v0.11.16/bin:/home/dev/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.13.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/home/dev/www/poker/game-server/node_modules/log4js/node_modules/async'
+
+npm manifest: 
+  {
+    "author": "Edward Yang",
+    "name": "poker-game-stack-server",
+    "description": "Texas Holdem poker game server",
+    "version": "0.0.1",
+    "private": false,
+    "dependencies": {
+      "pomelo": "~2.2.5",
+      "crc": "0.2.0",
+      "hoyle": "^0.2.2",
+      "node-uuid": "^1.4.1",
+      "pomelo-logger": "^0.1.6",
+      "redis": "^0.12.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

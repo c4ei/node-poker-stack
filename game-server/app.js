@@ -10,10 +10,28 @@ var app = pomelo.createApp();
 app.set('name', 'poker-game-stack');
 
 app.configure('production|development', function(){
-	app.route('game', routeUtil.game);
-	app.filter(pomelo.timeout());
-    app.set('session', require('../shared/config/session.json'));
+app.set('connectorConfig', {
+connector: pomelo.connectors.sioconnector,
+// 'websocket', 'polling-xhr', 'polling-jsonp', 'polling'
+transports: ['websocket', 'polling'],
+heartbeats: true,
+closeTimeout: 60 * 1000,
+heartbeatTimeout: 60 * 1000,
+heartbeatInterval: 25 * 1000
 });
+app.route('game', routeUtil.game);
+app.filter(pomelo.timeout());
+app.set('session', require('../shared/config/session.json'));
+});
+
+// var app = pomelo.createApp();
+// app.set('name', 'poker-game-stack');
+
+// app.configure('production|development', function(){
+// 	app.route('game', routeUtil.game);
+// 	app.filter(pomelo.timeout());
+//     app.set('session', require('../shared/config/session.json'));
+// });
 
 app.configure('production|development', 'game', function(){
     app.filter(abuseFilter());
